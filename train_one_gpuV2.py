@@ -3,7 +3,6 @@ import argparse
 import glob
 import os
 import random
-import shutil
 from datetime import datetime
 from os.path import join
 
@@ -218,7 +217,7 @@ def main():
 
     if args.freeze >= 4:
         for p in medsam_model.mask_decoder.transformer.parameters():
-            p.requires_grad = True
+            p.requires_grad = False
 
     # for p in medsam_model.mask_decoder.output_upscaling.parameters():
     #     p.requires_grad = True
