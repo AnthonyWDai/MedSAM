@@ -151,9 +151,6 @@ class MedSAM(nn.Module):
         self.image_encoder = image_encoder
         self.mask_decoder = mask_decoder
         self.prompt_encoder = prompt_encoder
-        # freeze prompt encoder
-        for param in self.prompt_encoder.parameters():
-            param.requires_grad = False
 
     def forward(self, image, box):
         image_embedding = self.image_encoder(image)  # (B, 256, 64, 64)
